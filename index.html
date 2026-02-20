@@ -330,6 +330,57 @@
             </div>
         </div>
 
+        <!-- Basic Commands -->
+        <section>
+            <h2>Basic Commands</h2>
+            
+            <h3>Gateway Management</h3>
+            <div class="code-block">
+                <pre class="no-header"><code># Check status
+openclaw status
+
+# Start the gateway
+openclaw gateway start
+
+# Stop the gateway
+openclaw gateway stop
+
+# Restart the gateway
+openclaw gateway restart</code></pre>
+            </div>
+
+            <details>
+                <summary>Chat & Sessions</summary>
+                <div class="code-block">
+                    <pre class="no-header"><code># Start a chat session
+openclaw chat
+
+# Use a specific model
+openclaw chat --model anthropic/claude-opus-4
+
+# View help
+openclaw help</code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Configuration</summary>
+                <p>Edit <code>~/.openclaw/openclaw.json</code> to configure API keys, models, and settings.</p>
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span>openclaw.json</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>{
+  "models": {
+    "provider": "anthropic",
+    "apiKey": "your-api-key-here"
+  }
+}</code></pre>
+                </div>
+            </details>
+        </section>
+
         <!-- The Memory System -->
         <section>
             <h2>The Memory System</h2>
@@ -420,6 +471,10 @@
             </div>
 
             <p style="margin-top: 32px;">These files are created automatically in <code>~/.openclaw/workspace/</code> on first run. The agent reads them at the start of every session. Customize them to make your agent truly yours!</p>
+
+            <p style="margin-top: 40px; padding: 20px; background: var(--bg-subtle); border-left: 4px solid var(--accent); border-radius: 8px;">
+                <strong>Before you start connecting your agent to sensitive systems...</strong> Let's talk about security and isolation. OpenClaw is powerful, and with that power comes risk. Here's how to think about it.
+            </p>
         </section>
 
         <!-- Security & Best Practices -->
@@ -472,7 +527,7 @@
             <p><strong>Bottom line:</strong> OpenClaw is as safe as the environment you run it in. Think about what you're giving it access to, and plan accordingly.</p>
         </section>
 
-        <!-- Basic Commands (Collapsed) -->
+        <!-- Contributing to Repos -->
         <section>
             <h2>Basic Commands</h2>
             
@@ -529,7 +584,7 @@ openclaw help</code></pre>
         <section>
             <h2>Contributing to Repos</h2>
             
-            <p>If you're helping with Arlo's projects, clone the repos from <strong>StryxZilla</strong> on GitHub.</p>
+            <p>This section is specific to contributing to Arlo's projects. If you're Reagan (or anyone else helping out), here's how to get started with the StryxZilla repos.</p>
 
             <div class="code-block">
                 <div class="code-block-header">
