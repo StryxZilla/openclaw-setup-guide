@@ -340,10 +340,10 @@
 
             <p>OpenClaw agents are stateless by default. Everything resets between sessions. The memory system solves this by giving your agent files to read at startup.</p>
 
-            <p>These files live in <code>~/.openclaw/workspace/</code> and are read automatically every session.</p>
+            <p>When you first run <code>openclaw gateway start</code>, OpenClaw automatically creates a workspace at <code>~/.openclaw/workspace/</code> with these key files. Here's what each one does and how you can customize them:</p>
 
             <h3>SOUL.md — Who Your Agent Is</h3>
-            <p>Define your agent's personality, behavior, and core rules.</p>
+            <p>This file defines your agent's personality, behavior, and core rules. OpenClaw generates a basic version of this file. You can edit it to match your preferences.</p>
 
             <div class="code-block">
                 <div class="code-block-header">
@@ -363,7 +363,7 @@
             </div>
 
             <h3>USER.md — About Your Human</h3>
-            <p>Tell the agent about you so it can personalize its help.</p>
+            <p>This file tells the agent about you so it can personalize its help. OpenClaw generates a basic version of this file. You can edit it to match your preferences.</p>
 
             <div class="code-block">
                 <div class="code-block-header">
@@ -381,7 +381,7 @@
             </div>
 
             <h3>MEMORY.md — Long-Term Memory</h3>
-            <p>The agent's curated memory. Important decisions, active projects, and people.</p>
+            <p>The agent's curated memory. Important decisions, active projects, and people. OpenClaw generates a basic version of this file. You can edit it to match your preferences.</p>
 
             <div class="code-block">
                 <div class="code-block-header">
@@ -401,7 +401,7 @@
             </div>
 
             <h3>AGENTS.md — Workspace Notes</h3>
-            <p>Instructions for the agent on how to use the workspace and memory system.</p>
+            <p>Instructions for the agent on how to use the workspace and memory system. OpenClaw generates a basic version of this file. You can edit it to match your preferences.</p>
 
             <div class="code-block">
                 <div class="code-block-header">
@@ -419,7 +419,7 @@
 - Update MEMORY.md with important stuff weekly</code></pre>
             </div>
 
-            <p style="margin-top: 32px;">Create these files in <code>~/.openclaw/workspace/</code> before your first session. The agent will read them automatically.</p>
+            <p style="margin-top: 32px;">These files are created automatically in <code>~/.openclaw/workspace/</code> on first run. The agent reads them at the start of every session. Customize them to make your agent truly yours!</p>
         </section>
 
         <!-- Basic Commands (Collapsed) -->
