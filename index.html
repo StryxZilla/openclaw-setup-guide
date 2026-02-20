@@ -5,420 +5,528 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenClaw Setup Guide</title>
     <style>
+        :root {
+            --accent: #0066FF;
+            --accent-hover: #0052CC;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --bg: #ffffff;
+            --bg-subtle: #f8f9fa;
+            --border: #e1e4e8;
+            --code-bg: #f6f8fa;
+            --code-text: #24292e;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+            color: var(--text);
+            background: var(--bg);
+            font-size: 16px;
         }
-        
+
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
         }
-        
+
+        /* Hero Section */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 20px;
             text-align: center;
-            border-radius: 8px;
-            margin-bottom: 40px;
+            padding: 80px 24px 60px;
         }
-        
+
         header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+
+        header .subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .content {
-            background: white;
+
+        /* Quick Start */
+        .quick-start {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 40px;
+            margin: 40px auto 80px;
+        }
+
+        .quick-start h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .quick-start .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-start .step {
+            background: white;
+            padding: 16px 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
+
+        .quick-start .step-num {
+            background: var(--accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .quick-start .step code {
+            flex: 1;
+            background: transparent;
+            padding: 0;
+            font-size: 15px;
+            color: var(--code-text);
+        }
+
+        /* Section Headings */
+        section {
+            margin-bottom: 80px;
+        }
+
         h2 {
-            color: #667eea;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 2em;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
         }
-        
-        h2:first-of-type {
-            margin-top: 0;
-        }
-        
+
         h3 {
-            color: #764ba2;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 32px 0 16px;
         }
-        
-        p, li {
-            margin-bottom: 15px;
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
         }
-        
-        code {
-            background: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            color: #c7254e;
+
+        /* Why it Matters Box */
+        .why-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 8px;
         }
-        
+
+        .why-box p {
+            margin: 0;
+            font-size: 17px;
+            font-style: italic;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            position: relative;
+            margin: 24px 0;
+        }
+
+        .code-block-header {
+            background: #2d2d2d;
+            color: #aaa;
+            padding: 8px 16px;
+            border-radius: 8px 8px 0 0;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: #444;
+            border: none;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #555;
+        }
+
+        .copy-btn.copied {
+            background: #28a745;
+        }
+
         pre {
             background: #2d2d2d;
             color: #f8f8f2;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 0 0 8px 8px;
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
         }
-        
-        pre code {
-            background: none;
-            color: #f8f8f2;
-            padding: 0;
+
+        .code-block-header + pre {
+            border-radius: 0 0 8px 8px;
         }
-        
-        ul, ol {
-            margin-left: 30px;
+
+        pre.no-header {
+            border-radius: 8px;
         }
-        
-        .note {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+
+        code {
+            font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
         }
-        
-        .tip {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+
+        /* Inline code */
+        p code, li code {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+            color: var(--code-text);
         }
-        
-        .warning {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+
+        /* Collapsible Sections */
+        details {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+            background: var(--bg-subtle);
         }
-        
+
+        details summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            margin: -20px -20px 0 -20px;
+            padding: 20px;
+            user-select: none;
+        }
+
+        details summary:hover {
+            color: var(--accent);
+        }
+
+        details[open] summary {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        details ul {
+            margin-left: 24px;
+        }
+
+        details li {
+            margin: 8px 0;
+        }
+
+        /* Links */
         a {
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
-        
-        .repos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .repo-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 3px solid #667eea;
-        }
-        
-        .repo-card h4 {
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .repo-card p {
-            font-size: 0.9em;
-            color: #666;
-            margin: 0;
-        }
-        
+
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 60px;
-            padding: 20px;
-            color: #666;
+            padding: 60px 24px;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            header .subtitle {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .quick-start {
+                padding: 24px;
+            }
+
+            .quick-start .step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🪶 OpenClaw Setup Guide</h1>
-        <p>Get up and running with OpenClaw and start contributing to Arlo's projects</p>
+        <div class="container">
+            <h1>OpenClaw Setup Guide</h1>
+            <p class="subtitle">Get your AI agent running in 3 commands. Everything else is optional.</p>
+        </div>
     </header>
-    
+
     <div class="container">
-        <div class="content">
-            
-            <h2>1. Prerequisites</h2>
-            
-            <h3>Node.js (Required)</h3>
-            <p>OpenClaw requires <strong>Node.js 18 or later</strong>.</p>
-            <pre><code># Check your Node version
-node --version
-
-# Should output v18.x.x or higher</code></pre>
-            <p>If you need to install or update Node.js: <a href="https://nodejs.org/" target="_blank">nodejs.org</a></p>
-            
-            <h3>Git (Required)</h3>
-            <p>You'll need Git to clone repos and contribute.</p>
-            <pre><code># Check if Git is installed
-git --version</code></pre>
-            <p>Download Git if needed: <a href="https://git-scm.com/" target="_blank">git-scm.com</a></p>
-            
-            <h3>GitHub Account + SSH Keys (Required for Contributing)</h3>
-            <p>To contribute to Arlo's repos, you'll need:</p>
-            <ol>
-                <li>A GitHub account (sign up at <a href="https://github.com" target="_blank">github.com</a>)</li>
-                <li>SSH keys configured for Git authentication</li>
-            </ol>
-            
-            <p><strong>Setting up SSH keys:</strong></p>
-            <pre><code># Generate a new SSH key
-ssh-keygen -t ed25519 -C "your_email@example.com"
-
-# Start the SSH agent
-eval "$(ssh-agent -s)"
-
-# Add your key
-ssh-add ~/.ssh/id_ed25519
-
-# Copy your public key
-cat ~/.ssh/id_ed25519.pub</code></pre>
-            <p>Then add the public key to GitHub: <strong>Settings → SSH and GPG keys → New SSH key</strong></p>
-            <p>Full guide: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh" target="_blank">GitHub SSH Setup</a></p>
-            
-            <div class="note">
-                <strong>Windows Users:</strong> OpenClaw works great on Windows! No need for WSL unless you prefer it. Use PowerShell or Git Bash for the commands above.
+        <!-- Quick Start -->
+        <div class="quick-start">
+            <h2>Quick Start</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <code>npm install -g openclaw</code>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <code>openclaw gateway start</code>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <code>openclaw chat</code>
+                </div>
             </div>
-            
-            <h2>2. Install OpenClaw</h2>
-            
-            <h3>Via npm (Recommended)</h3>
-            <pre><code># Install globally
-npm install -g openclaw
+        </div>
 
-# Verify installation
-openclaw --version</code></pre>
+        <!-- The Memory System -->
+        <section>
+            <h2>The Memory System</h2>
             
-            <h3>From Source (Alternative)</h3>
-            <pre><code># Clone the repo
-git clone https://github.com/openclaw/openclaw.git
-cd openclaw
-
-# Install dependencies
-npm install
-
-# Link globally
-npm link</code></pre>
-            
-            <h2>3. First Run & Configuration</h2>
-            
-            <h3>Start the Gateway</h3>
-            <pre><code>openclaw gateway start</code></pre>
-            <p>This will:</p>
-            <ul>
-                <li>Create <code>~/.openclaw/</code> directory</li>
-                <li>Generate a default config file</li>
-                <li>Start the OpenClaw gateway service</li>
-            </ul>
-            
-            <h3>Configure Your API Keys</h3>
-            <p>Edit <code>~/.openclaw/openclaw.json</code> to add your model provider API keys:</p>
-            <pre><code>{
-  "models": {
-    "provider": "anthropic",  // or "openrouter", "openai", etc.
-    "apiKey": "your-api-key-here"
-  }
-}</code></pre>
-            
-            <div class="tip">
-                <strong>Tip:</strong> For testing/low-cost use, OpenRouter offers free models (Llama 3.3 70B). Anthropic Claude is the default for production work.
+            <div class="why-box">
+                <p>"Your agent wakes up fresh every session. These files are how it remembers who you are, what you're working on, and how to help you."</p>
             </div>
+
+            <p>OpenClaw agents are stateless by default. Everything resets between sessions. The memory system solves this by giving your agent files to read at startup.</p>
+
+            <p>These files live in <code>~/.openclaw/workspace/</code> and are read automatically every session.</p>
+
+            <h3>SOUL.md — Who Your Agent Is</h3>
+            <p>Define your agent's personality, behavior, and core rules.</p>
+
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>SOUL.md</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code># Who You Are
+
+- **Name:** [Your agent's name]
+- **Personality:** [Describe the vibe - professional? snarky? helpful imp?]
+- **Mission:** [What's your agent's purpose?]
+
+## Rules
+- Be helpful but efficient
+- Have opinions
+- Write things down (memory files are your continuity)</code></pre>
+            </div>
+
+            <h3>USER.md — About Your Human</h3>
+            <p>Tell the agent about you so it can personalize its help.</p>
+
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>USER.md</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code># About Your Human
+
+- **Name:** [Your name]
+- **Timezone:** [e.g., America/Chicago]
+- **Email:** [Your email]
+- **Preferences:**
+  - [e.g., "Loves charts and visual explanations"]
+  - [e.g., "Hates long emails - keep it brief"]</code></pre>
+            </div>
+
+            <h3>MEMORY.md — Long-Term Memory</h3>
+            <p>The agent's curated memory. Important decisions, active projects, and people.</p>
+
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>MEMORY.md</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code># Long-Term Memory
+
+## Key Decisions
+- [Date] - [What was decided and why]
+
+## Active Projects
+- [Project name] - [Status and next steps]
+
+## People & Context
+- [Important people and how you know them]</code></pre>
+            </div>
+
+            <h3>AGENTS.md — Workspace Notes</h3>
+            <p>Instructions for the agent on how to use the workspace and memory system.</p>
+
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>AGENTS.md</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code># Workspace Notes
+
+## Every Session
+- Read SOUL.md, USER.md, MEMORY.md first
+- Check memory/ folder for recent daily notes
+
+## Memory Habits
+- Write to memory/YYYY-MM-DD.md during conversations
+- Update MEMORY.md with important stuff weekly</code></pre>
+            </div>
+
+            <p style="margin-top: 32px;">Create these files in <code>~/.openclaw/workspace/</code> before your first session. The agent will read them automatically.</p>
+        </section>
+
+        <!-- Basic Commands (Collapsed) -->
+        <section>
+            <h2>Basic Commands</h2>
             
-            <h3>Workspace Setup</h3>
-            <p>Your workspace lives in <code>~/.openclaw/workspace</code>. Key files:</p>
-            <ul>
-                <li><strong>SOUL.md</strong> — Defines your agent's personality and behavior</li>
-                <li><strong>USER.md</strong> — Info about you (name, preferences, timezone)</li>
-                <li><strong>TOOLS.md</strong> — Local notes on tools, paths, API keys</li>
-                <li><strong>MEMORY.md</strong> — Long-term memory and important context</li>
-                <li><strong>AGENTS.md</strong> — Workspace conventions and guidelines</li>
-            </ul>
-            <p>The agent reads these files every session to understand context. Think of them as its "operating manual."</p>
-            
-            <h2>4. Basic Commands</h2>
-            
-            <pre><code># Check gateway status
+            <details>
+                <summary>Gateway Management</summary>
+                <div class="code-block">
+                    <pre class="no-header"><code># Check status
 openclaw status
 
-# Start/stop/restart the gateway
+# Start the gateway
 openclaw gateway start
-openclaw gateway stop
-openclaw gateway restart
 
-# Start a chat session
+# Stop the gateway
+openclaw gateway stop
+
+# Restart the gateway
+openclaw gateway restart</code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Chat & Sessions</summary>
+                <div class="code-block">
+                    <pre class="no-header"><code># Start a chat session
 openclaw chat
+
+# Use a specific model
+openclaw chat --model anthropic/claude-opus-4
 
 # View help
 openclaw help</code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Configuration</summary>
+                <p>Edit <code>~/.openclaw/openclaw.json</code> to configure API keys, models, and settings.</p>
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span>openclaw.json</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>{
+  "models": {
+    "provider": "anthropic",
+    "apiKey": "your-api-key-here"
+  }
+}</code></pre>
+                </div>
+            </details>
+        </section>
+
+        <!-- Contributing to Repos -->
+        <section>
+            <h2>Contributing to Repos</h2>
             
-            <div class="note">
-                <strong>API Costs:</strong> Be mindful of token usage. Use cheaper models for simple tasks. Check <code>/status</code> in chat to see usage stats.
+            <p>If you're helping with Arlo's projects, clone the repos from <strong>StryxZilla</strong> on GitHub.</p>
+
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>Example: Clone a repo</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>git clone git@github.com:StryxZilla/tax-software-2025.git
+cd tax-software-2025
+npm install</code></pre>
             </div>
+
+            <p>See the full portfolio: <a href="https://stryxzilla.github.io/arlo-portfolio/" target="_blank">stryxzilla.github.io/arlo-portfolio</a></p>
+        </section>
+
+        <!-- Next Steps -->
+        <section>
+            <h2>Next Steps</h2>
             
-            <h2>5. Understanding Subagents</h2>
-            
-            <p>One of OpenClaw's killer features: <strong>subagents</strong> let you spawn background AI workers to handle tasks while you keep the conversation flowing.</p>
-            
-            <p><strong>When to use subagents:</strong></p>
-            <ul>
-                <li>Any task that takes >30 seconds of focused work</li>
-                <li>Building, coding, or research tasks</li>
-                <li>Anything where you want async progress updates</li>
-            </ul>
-            
-            <pre><code># Example: spawn a subagent to build something
-sessions_spawn(
-  task="Build a simple React app with...",
-  label="react-app-build"
-)</code></pre>
-            
-            <p>The subagent works in the background and pings you when done. Meanwhile, you can keep chatting or spawn more subagents.</p>
-            
-            <h2>6. Contributing to StryxZilla Repos</h2>
-            
-            <p>Arlo (the AI assistant) builds projects under the <strong>StryxZilla</strong> GitHub account. Here are the active repos:</p>
-            
-            <div class="repos-grid">
-                <div class="repo-card">
-                    <h4>tax-software-2025</h4>
-                    <p>Full TurboTax clone with Next.js, React 19, TypeScript</p>
-                </div>
-                <div class="repo-card">
-                    <h4>ai-workplace-guide</h4>
-                    <p>538-style guide on AI best practices in the workplace</p>
-                </div>
-                <div class="repo-card">
-                    <h4>arlo-portfolio</h4>
-                    <p>Arlo's personal portfolio site</p>
-                </div>
-                <div class="repo-card">
-                    <h4>india-language-wars</h4>
-                    <p>Data journalism on India's language conflicts</p>
-                </div>
-                <div class="repo-card">
-                    <h4>cellular-chart</h4>
-                    <p>Data viz on cellular coverage/pricing</p>
-                </div>
-                <div class="repo-card">
-                    <h4>maternal-mortality</h4>
-                    <p>US maternal mortality dashboard</p>
-                </div>
-                <div class="repo-card">
-                    <h4>california-hsr</h4>
-                    <p>California high-speed rail data viz</p>
-                </div>
-                <div class="repo-card">
-                    <h4>dashcam-guide</h4>
-                    <p>Buyer's guide for dashcams</p>
-                </div>
-            </div>
-            
-            <h3>Clone a Repo</h3>
-            <pre><code>git clone git@github.com:StryxZilla/tax-software-2025.git
-cd tax-software-2025</code></pre>
-            
-            <h3>Branch Workflow</h3>
-            <p>Most repos use <code>master</code> or <code>main</code> as the primary branch. For contributions:</p>
-            <ol>
-                <li>Create a feature branch: <code>git checkout -b feature/your-feature-name</code></li>
-                <li>Make your changes and commit: <code>git add . && git commit -m "Description"</code></li>
-                <li>Push: <code>git push origin feature/your-feature-name</code></li>
-                <li>Open a Pull Request on GitHub</li>
-            </ol>
-            
-            <div class="warning">
-                <strong>Important:</strong> These are Arlo's repos, so coordinate with Andy/Arlo before making major changes. PRs are reviewed before merging.
-            </div>
-            
-            <h2>7. Tips & Gotchas</h2>
-            
-            <h3>Signal Integration (Optional)</h3>
-            <p>If you want OpenClaw to receive/send Signal messages, you'll need <code>signal-cli</code>. It's a bit involved — check the <a href="https://github.com/AsamK/signal-cli" target="_blank">signal-cli docs</a> if you're interested.</p>
-            
-            <h3>Managing API Costs</h3>
-            <ul>
-                <li>Use OpenRouter free models (Llama 3.3 70B) for simple tasks</li>
-                <li>Reserve Claude Opus/Sonnet for complex work</li>
-                <li>Check <code>/status</code> regularly to monitor token usage</li>
-                <li>Set budget alerts if your provider supports them</li>
-            </ul>
-            
-            <h3>Common Troubleshooting</h3>
-            <p><strong>Gateway won't start:</strong></p>
-            <ul>
-                <li>Check if port 18789 is already in use</li>
-                <li>Try <code>openclaw gateway stop && openclaw gateway start</code></li>
-            </ul>
-            
-            <p><strong>Agent seems to have forgotten context:</strong></p>
-            <ul>
-                <li>Check workspace files (SOUL.md, USER.md, MEMORY.md) exist</li>
-                <li>Restart gateway to reload workspace</li>
-            </ul>
-            
-            <p><strong>Commands not found:</strong></p>
-            <ul>
-                <li>Make sure npm global bin is in your PATH</li>
-                <li>On Windows, restart your terminal after install</li>
-            </ul>
-            
-            <h2>8. Next Steps</h2>
-            
-            <ul>
-                <li>📚 Read the docs: <a href="https://docs.openclaw.ai" target="_blank">docs.openclaw.ai</a></li>
-                <li>💬 Join the Discord: <a href="https://discord.com/invite/clawd" target="_blank">discord.com/invite/clawd</a></li>
-                <li>🔧 Explore skills: <a href="https://clawhub.com" target="_blank">clawhub.com</a></li>
-                <li>🎯 Check out Arlo's portfolio: <a href="https://stryxzilla.github.io/arlo-portfolio/" target="_blank">stryxzilla.github.io/arlo-portfolio</a></li>
-            </ul>
-            
-            <div class="tip">
-                <strong>Pro tip:</strong> The best way to learn OpenClaw is to use it for real work. Pick a small project and let the agent help you build it. You'll quickly learn what it can (and can't) do.
-            </div>
-            
-        </div>
-        
-        <footer>
-            <p>Built by Arlo 😈 | <a href="https://github.com/StryxZilla" target="_blank">github.com/StryxZilla</a></p>
-            <p style="font-size: 0.9em; margin-top: 10px;">Have questions? Reach out to Andy or check the <a href="https://discord.com/invite/clawd" target="_blank">OpenClaw Discord</a></p>
-        </footer>
+            <p><strong>📚 Read the docs:</strong> <a href="https://docs.openclaw.ai" target="_blank">docs.openclaw.ai</a></p>
+            <p><strong>💬 Join Discord:</strong> <a href="https://discord.com/invite/clawd" target="_blank">discord.com/invite/clawd</a></p>
+            <p><strong>🔧 Explore skills:</strong> <a href="https://clawhub.com" target="_blank">clawhub.com</a></p>
+            <p><strong>🎯 View Arlo's work:</strong> <a href="https://stryxzilla.github.io/arlo-portfolio/" target="_blank">Portfolio</a></p>
+        </section>
     </div>
+
+    <footer>
+        <p>Built by Arlo (Andy's AI assistant) 😈</p>
+        <p style="margin-top: 8px; font-size: 14px;">
+            <a href="https://github.com/StryxZilla" target="_blank">github.com/StryxZilla</a>
+        </p>
+    </footer>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('pre code').textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
